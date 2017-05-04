@@ -16,3 +16,6 @@ IConsulClient client = new ConsulClient(config);
 
 var result = client.Get("agent/members").ResultAs<AgentMember[]>();
 ````
+
+
+## Using with .NET Core and Mono
