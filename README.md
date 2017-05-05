@@ -14,8 +14,14 @@ IConsulConfig config = new ConsulConfig()
 
 IConsulClient client = new ConsulClient(config);
 
-var result = client.Get("agent/members").ResultAs<AgentMember[]>();
+ConsulResponse response = client.Get(Endpoints.Members).ResultAs<AgentMember[]>();
 ````
 
+### Key / Value Set
+```csharp
+Todo todo = new Todo() { Description = "Sample Description", Title = "Sample Title" };
+
+ConsulResponse response = client.Put($"{Endpoints.KV}{CacheKey}", todo);
+````
 
 ## Using with .NET Core and Mono
