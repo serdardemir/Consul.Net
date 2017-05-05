@@ -63,6 +63,67 @@ namespace Consul.Net
             GC.SuppressFinalize(this);
         }
 
+        public Task<PutResponse> PutAsync<T>(string path, T data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public PutResponse Put<T>(string path, T data)
+        {
+            try
+            {
+                using (var response = requestManager.RequestAsync(HttpMethod.Put, path, data).Result)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+
+                    return new PutResponse(content, response.StatusCode);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ConsulException(ex.Message);
+            }
+        }
+
+        public PutResponse Put(string path)
+        {
+            try
+            {
+                using (var response = requestManager.RequestAsync(HttpMethod.Put, path).Result)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+
+                    return new PutResponse(content, response.StatusCode);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ConsulException(ex.Message);
+            }
+        }
+
+        public ConsulResponse Delete(string path)
+        {
+            try
+            {
+                using (var response = requestManager.RequestAsync(HttpMethod.Delete, path).Result)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+
+                    return new PutResponse(content, response.StatusCode);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ConsulException(ex.Message);
+            }
+        }
+
+        public Task<ConsulResponse> DeleteAsync(string path)
+        {
+            throw new NotImplementedException();
+        }
+
         ~ConsulClient()
         {
         }

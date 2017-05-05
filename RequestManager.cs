@@ -21,7 +21,7 @@ namespace Consul.Net
 
             httpClient = new HttpClient();
 
-            var basePath = config.ApiPath.EndsWith("/") ? config.ApiPath : config.ApiPath + "/";
+            var basePath = config.PathBase.EndsWith("/") ? config.PathBase : config.PathBase + "/";
             httpClient.BaseAddress = new Uri(basePath);
 
             if (config.RequestTimeout.HasValue)
@@ -72,7 +72,7 @@ namespace Consul.Net
                 queryStr = $"&{queryBuilder.ToQueryString()}";
             }
 
-            var url = $"{config.ApiPath}{config.Version}{"/"}{path}{queryStr}";
+            var url = $"{config.PathBase}{config.Version}{"/"}{path}{queryStr}";
 
             return new Uri(url);
         }

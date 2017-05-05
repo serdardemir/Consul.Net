@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Types\Health\" />
     <Folder Include="Types\Event\" />
   </ItemGroup>
 

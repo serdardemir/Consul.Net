@@ -1,5 +1,6 @@
 ﻿using Consul.Net.Interfaces;
-using Consul.Net.Types.Agent;
+using Consul.Net.Types.KV;
+using System.Text;
 
 namespace Consul.Net
 {
@@ -7,16 +8,7 @@ namespace Consul.Net
     {
         private static void Main(string[] args)
         {
-            IConsulConfig config = new ConsulConfig()
-            {
-                ApiPath = "http://localhost:8500"
-            };
-
-            IConsulClient client = new ConsulClient(config);
-
-            var result = client.Get("agent/members").ResultAs<AgentMember[]>();
-
-            var services = client.Get("agent/services").ResultAs<AgentService>();
+            
         }
     }
 }

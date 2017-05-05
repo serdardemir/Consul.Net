@@ -5,19 +5,19 @@ namespace Consul.Net
 {
     public class ConsulConfig : IConsulConfig
     {
-        private string apiPath;
+        private string pathBase;
 
         public ConsulConfig()
         {
         }
 
-        public string ApiPath
+        public string PathBase
         {
             get
             {
-                return apiPath.EndsWith("/") ? apiPath : $"{apiPath}/";
+                return pathBase.EndsWith("/") ? pathBase : $"{pathBase}/";
             }
-            set { apiPath = value; }
+            set { pathBase = value; }
         }
 
         public string Host { get; set; }
