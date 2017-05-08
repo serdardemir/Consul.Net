@@ -11,8 +11,24 @@
         //KEY / VALUE STORE
         public const string KV = "kv/";
 
+        //SESSION
+        public const string CreateSession = "/session/create";
+        public const string DeleteSession = "/session/destroy/";
+        public const string ReadSession = "/session/info/";
+        public const string SessionList = "/session/list";
+        public const string RenewSession = "/session/renew/";
+
+
+
         //HEALTH
+        public const string NodeHealthCheck = "health/node/{:nodeName}";
 
         public const string ServiceHealthCheck = "health/checks/";
+
+        //ADMINISTRATION
+        public const string RaftLeader = "/status/leader";
+
+        public const string RaftPeers = "/status/peers";
+        public const string Snapshot = "/snapshot";
     }
 }
