@@ -18,6 +18,10 @@
         public const string SessionList = "/session/list";
         public const string RenewSession = "/session/renew/";
 
+        //EVENT
+        public const string Events = "/event/list";
+        public const string FireEvent = "/event/fire/";
+
 
 
         //HEALTH
