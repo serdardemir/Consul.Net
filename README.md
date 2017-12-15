@@ -5,6 +5,10 @@ Consul REST API wrapper for the .NET
 ### Usage
 
 ------------------------------
+To run a local consul server:
+* Open a command prompt and cd to the "consul" folder.
+* Run .\consul.exe agent -dev
+
 
 ```csharp
 IConsulConfig config = new ConsulConfig()
